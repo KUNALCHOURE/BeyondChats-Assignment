@@ -34,7 +34,7 @@ async function scrapeBlogs() {
 
     if (!title || !content) continue;
 
-    await Article.create({
+    const newarticle=await Article.create({
       title,
       content,
       originalUrl: url,
@@ -42,8 +42,10 @@ async function scrapeBlogs() {
 
     console.log(" Saved:", title);
   }
-
+  
   mongoose.connection.close();
+  //  return newarticle;
 }
 
-scrapeBlogs();
+//scrapeBlogs();
+export default scrapeBlogs;
